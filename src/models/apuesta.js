@@ -4,11 +4,11 @@ const apuestaSchema = mongoose.Schema({
 
     tipo: {
         type: String,
-        enum: ['numero_color'],
+        enum: ['numero', 'color'],
         required: true
     },
     valor: {
-        type: String,
+        type: mongoose.Mixed,
         required: true
     },
     valor_apuesta: {

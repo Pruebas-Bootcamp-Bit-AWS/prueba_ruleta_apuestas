@@ -1,4 +1,5 @@
 import Ruleta from '../models/ruleta.js';
+import { cacularGanancia } from './apuestaService.js';
 
 export const crearRuletaService = async () => {
     try {
