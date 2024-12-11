@@ -1,24 +1,31 @@
-import { model,Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const apuestaSchema = Schema({
+const apuestaSchema = mongoose.Schema({
 
-    id_user: {
-
+    tipo: {
+        type: String,
+        enum: ['numero_color'],
+        required: true
     },
-    numero_ganador: {
-
+    valor: {
+        type: String,
+        required: true
     },
-    color_ganador: {
-
-    },
-    dinero: {
+    valor_apuesta: {
         type: Number,
         required: true
     },
+    ganancia: {
+        type: Number,
+        default: 0
+    },
     ruleta_rel: [{
-        type: mongoose.Schema.Types.objectId,
-        ref: 'Apuesta',
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Ruleta',
         required: true
     }]
 
 })
+
+const Apuesta = mongoose.model('apuesta', apuestaSchema);
+export default Apuesta;

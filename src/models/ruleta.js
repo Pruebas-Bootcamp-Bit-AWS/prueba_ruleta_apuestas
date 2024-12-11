@@ -1,6 +1,6 @@
-import { model,Schema } from "mongoose";
+import mongoose from 'mongoose';
 
-const ruletaSchema = Schema({
+const ruletaSchema = mongoose.Schema({
 
     estado: {
         type: String,
@@ -8,11 +8,11 @@ const ruletaSchema = Schema({
         default: 'cerrada'
     },
     apuestas_rel: [{
-        type: mongoose.Schema.Types.objectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Apuesta'
     }]
 
 })
 
 const Ruleta = mongoose.model('ruleta', ruletaSchema);
-model.exports = Ruleta;
+export default Ruleta;
